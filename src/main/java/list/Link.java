@@ -1,20 +1,20 @@
 package list;
 
 public class Link {
-	public int data;
-	public Link next;
-	public Link arb;
+    public int data;
+    public Link next;
+    public Link arb;
 
-	public Link(int data) {
-		this.data = data;
-	}
+    public Link(int data) {
+        this.data = data;
+    }
 
-	public Link() {
-	}
+    public Link() {
+    }
 
-	@Override
-	public String toString() {
-		return "Link [data=" + data + ", next=" + next + "]";
-	}
+    @Override
+    public String toString() {
+        return "Link [data=" + data + ", next=" + next + "]";
+    }
 
 }

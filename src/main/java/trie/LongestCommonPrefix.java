@@ -2,24 +2,24 @@ package trie;
 
 public class LongestCommonPrefix {
 
-	public static void main(String[] args) {
-		String[] strs = { "vishal", "vivek" };
+    public static void main(String[] args) {
+        String[] strs = {"vishal", "vivek"};
 
-		TrieNode node = Insert.insert(strs);
+        TrieNode node = Insert.insert(strs);
 
-		longestCommonPrefix(node);
-	}
+        longestCommonPrefix(node);
+    }
 
-	private static void longestCommonPrefix(TrieNode node) {
-		int max = 0;
-		TrieNode currNode = node;
+    private static void longestCommonPrefix(TrieNode node) {
+        int max = 0;
+        TrieNode currNode = node;
 
-		while (currNode.children.size() == 1) {
-			max++;
-			currNode = currNode.children.get(0);
-		}
+        while (currNode.children.size() == 1) {
+            max++;
+            currNode = currNode.children.get(0);
+        }
 
-		System.out.println("max common prefix is : " + max);
-	}
+        System.out.println("max common prefix is : " + max);
+    }
 
 }
