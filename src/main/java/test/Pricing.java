@@ -39,8 +39,8 @@ public class Pricing {
         cartItem3.setQuantity(1);
 
         CartItem cartItem4 = new CartItem();
-        cartItem1.setProduct(product4);
-        cartItem1.setQuantity(1);
+        cartItem4.setProduct(product4);
+        cartItem4.setQuantity(1);
 
         cart.addToCart(cartItem1);
         cart.addToCart(cartItem2);
@@ -69,7 +69,8 @@ public class Pricing {
 
 
         PricingEngine pricingEngine = new PricingEngine();
-        pricingEngine.calculatePrice(cart, Arrays.asList(promotion1, promotion2, promotion3));
+        double finalPrice = pricingEngine.calculatePrice(cart, Arrays.asList(promotion1, promotion2, promotion3));
+        System.out.println("final price is : " + finalPrice);
     }
 }
 

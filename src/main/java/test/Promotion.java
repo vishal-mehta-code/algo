@@ -17,16 +17,32 @@ class Promotion {
         this.comboOffer = comboOffer;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public List<Integer> getQuantity() {
+        return quantity;
     }
 
     public void setQuantity(List<Integer> quantity) {
         this.quantity = quantity;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getPriority() {
+        return priority;
     }
 
     public void setPriority(int priority) {

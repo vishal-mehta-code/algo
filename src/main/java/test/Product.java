@@ -34,4 +34,12 @@ public class Product {
     public int hashCode() {
         return Objects.hash(skuId);
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "skuId='" + skuId + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
