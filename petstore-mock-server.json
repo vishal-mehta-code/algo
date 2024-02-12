@@ -267,7 +267,7 @@
           },
           "tag": {
             "type": "string",
-            "example": "dummy tag updated yet again"
+            "example": "dummy tag"
           }
         }
       },
