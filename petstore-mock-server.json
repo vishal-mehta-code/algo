@@ -13,7 +13,7 @@
     }
   ],
   "paths": {
-    "/pets": {
+    "/v1/pets": {
       "get": {
         "summary": "List all pets",
         "operationId": "listPets",
