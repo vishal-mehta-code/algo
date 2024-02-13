@@ -109,9 +109,9 @@ paths:
             type: string
           examples:       # Multiple examples
             one:         # Distinct name
-              value: 1    # Example value
+              value: 2    # Example value
             two: # Distinct name
-              value: 2   # Example value
+              value: 1   # Example value
       responses:
         '200':
           description: Expected response to a valid request
@@ -122,14 +122,14 @@ paths:
               examples:
                 one:
                   value:
-                    - id: 1
-                      name: name_1
-                      tag: tag_1
-                two:
-                  value:
                     - id: 2
                       name: name_2
                       tag: tag_2
+                two:
+                  value:
+                    - id: 1
+                      name: name_1
+                      tag: tag_1
         '400':
           description: unexpected error
           content:
