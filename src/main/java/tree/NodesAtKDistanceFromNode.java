@@ -25,7 +25,7 @@ public class NodesAtKDistanceFromNode {
         if (node != null) {
 
             if (node == targetNode) {
-                printAllDescendentsAtKDistance(node, 0, k);
+                printAllDescendantsAtKDistance(node, 0, k);
                 return node;
             }
 
@@ -37,7 +37,7 @@ public class NodesAtKDistanceFromNode {
                     System.out.println(node);
                     return null;
                 } else {
-                    printAllDescendentsAtKDistance(node.left, 0, k - 2);
+                    printAllDescendantsAtKDistance(node.left, 0, k - 2);
                     k = k - 1;
                     return node;
                 }
@@ -47,26 +47,25 @@ public class NodesAtKDistanceFromNode {
                     System.out.println(node);
                     return null;
                 } else {
-                    printAllDescendentsAtKDistance(node.right, 0, k - 2);
+                    printAllDescendantsAtKDistance(node.right, 0, k - 2);
                     k = k - 1;
                     return node;
                 }
             }
 
             return null;
-
         }
         return null;
 
     }
 
-    private static void printAllDescendentsAtKDistance(Node node, int level, int k) {
+    private static void printAllDescendantsAtKDistance(Node node, int level, int k) {
         if (node != null) {
             if (level == k) {
                 System.out.println(node.data);
             }
-            printAllDescendentsAtKDistance(node.left, level + 1, k);
-            printAllDescendentsAtKDistance(node.right, level + 1, k);
+            printAllDescendantsAtKDistance(node.left, level + 1, k);
+            printAllDescendantsAtKDistance(node.right, level + 1, k);
         }
     }
 }
