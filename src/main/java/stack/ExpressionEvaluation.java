@@ -34,7 +34,6 @@ public class ExpressionEvaluation {
             char current = infixExpression.charAt(i);
 
             if (current >= '0' && current <= '9') {
-
                 StringBuilder sb = new StringBuilder();
                 sb.append(current);
 
@@ -91,7 +90,7 @@ public class ExpressionEvaluation {
         for (String str : strArray) {
 
             if (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
-                stk.push(evaluteOperand(str, stk.pop(), stk.pop()));
+                stk.push(evaluateOperand(str, stk.pop(), stk.pop()));
             } else {
                 stk.push(Integer.parseInt(str));
             }
@@ -100,7 +99,7 @@ public class ExpressionEvaluation {
         System.out.println(stk.pop());
     }
 
-    private static int evaluteOperand(String str, int value1, int value2) {
+    private static int evaluateOperand(String str, int value1, int value2) {
         if (str.equals("+")) {
             return value2 + value1;
         }
