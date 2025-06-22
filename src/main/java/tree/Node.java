@@ -1,12 +1,12 @@
 package tree;
 
 public class Node {
-    int data;
-    Node left;
-    Node right;
-    Node arb;
+    public int data;
+    public Node left;
+    public Node right;
+    public Node arb;
 
-    Node(int value) {
+    public Node(int value) {
         this.data = value;
     }
 
