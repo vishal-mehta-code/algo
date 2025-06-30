@@ -31,7 +31,7 @@ public class NodesAtKDistanceFromLeaves {
 
         int h = getHeight(rootNode);
         pathArray = new Node[h];
-        //nodesAtKDistanceFromLeaves(rootNode, 0);
+        nodesAtKDistanceFromLeaves(rootNode, 0);
         System.out.println(set);
 
         nodesAtKDistanceFromLeavesUsingGraph(rootNode);
