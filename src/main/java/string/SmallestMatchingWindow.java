@@ -6,8 +6,8 @@ import java.util.Map;
 public class SmallestMatchingWindow {
 
     public static void main(String[] args) {
-        String str1 = "tist";
-        String str2 = "tstit";
+        String str1 = "abcd";
+        String str2 = "aaaaefghij";
         findMinMatchingWindow(str1.toCharArray(), str2.toCharArray());
     }
 
@@ -52,6 +52,11 @@ public class SmallestMatchingWindow {
         }
 
         System.out.println("maxL : " + maxL + " maxR : " + maxR);
+
+        if (maxR < 0) {
+            System.out.println("not found");
+            return;
+        }
 
         StringBuilder sb = new StringBuilder();
         for (int i = maxL; i <= maxR; i++) {
