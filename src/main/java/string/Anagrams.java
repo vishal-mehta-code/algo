@@ -10,16 +10,16 @@ public class Anagrams {
     }
 
     private static boolean isAnagrams(char[] s1, char[] s2) {
-        int NO_OF_CHARCTERS = 256;
-        int[] count1 = new int[NO_OF_CHARCTERS];
-        int[] count2 = new int[NO_OF_CHARCTERS];
+        int NO_OF_CHARACTERS = 256;
+        int[] count1 = new int[NO_OF_CHARACTERS];
+        int[] count2 = new int[NO_OF_CHARACTERS];
 
         for (int i = 0; i < s1.length; i++) {
             count1[s1[i]]++;
             count2[s2[i]]++;
         }
 
-        for (int i = 0; i < NO_OF_CHARCTERS; i++) {
+        for (int i = 0; i < NO_OF_CHARACTERS; i++) {
             if (count1[i] != count2[i])
                 return false;
         }
