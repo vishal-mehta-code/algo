@@ -50,11 +50,15 @@ public class Palindrome {
     }
 
     private static boolean isPalindrome(String str) {
-        if (str.length() <= 1) {
-            return true;
+        int l = 0;
+        int r = str.length() - 1;
+        while (l < r) {
+            if (str.charAt(l) != str.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
         }
-
-        return str.substring(0, 1).equals(str.substring(str.length() - 1, str.length()))
-                && isPalindrome(str.substring(1, str.length() - 1));
+        return true;
     }
 }
