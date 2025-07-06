@@ -1,32 +1,32 @@
 package string;
 
+import java.util.Stack;
+
 public class RemoveAdjDups {
 
     public static void main(String[] args) {
         String str = "geeksforgeeg";
-        System.out.println(removeAdjDups(str, 0));
+        System.out.println(removeAdjDups(str));
     }
 
-    private static String removeAdjDups(String str, int i) {
-
-        if (str.length() <= 1) {
-            return str;
-        }
-        if (i == str.length() - 1) {
-            return str;
-        }
-
-        if (str.charAt(i) == str.charAt(i + 1)) {
-            int j = i + 1;
-
-            while (j < str.length() && str.charAt(i) == str.charAt(j)) {
-                j++;
+    private static String removeAdjDups(String str) {
+        Stack<Character> stk = new Stack<>();
+        for (Character curr : str.toCharArray()) {
+            if (stk.isEmpty()) {
+                stk.push(curr);
+            } else {
+                if (stk.peek() == curr) {
+                    stk.pop();
+                } else {
+                    stk.push(curr);
+                }
             }
-
-            return removeAdjDups(str.substring(0, i) + str.substring(j, str.length()), i - 1);
         }
-
-        return removeAdjDups(str, i + 1);
+        StringBuilder result = new StringBuilder();
+        for (Character curr : stk) {
+            result.append(curr);
+        }
+        return result.toString();
     }
 
 }
