@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class LargestNonRepeatingSubString {
 
-    private static char[] str = "GEEKSFORGEEKS".toCharArray();
+    private static final char[] str = "GEEKSFORGEEKS".toCharArray();
 
     public static void main(String[] args) {
         int start = 0;
@@ -15,7 +15,6 @@ public class LargestNonRepeatingSubString {
         Map<Character, Integer> map = new HashMap<Character, Integer>();
 
         for (int i = 0; i < str.length; i++) {
-
             if (null != map.get(str[i])) {
                 int lastIndex = map.get(str[i]);
 
@@ -40,6 +39,6 @@ public class LargestNonRepeatingSubString {
         for (int i = start; i <= start + max; i++) {
             builder.append(str[i]);
         }
-        System.out.println(builder.toString());
+        System.out.println(builder);
     }
 }
