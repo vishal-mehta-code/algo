@@ -3,7 +3,7 @@ package array;
 public class OnceInArray {
 
     public static void main(String[] args) {
-        int array1[] = {1, 2, 2, 3, 3, 4, 4};
+        int[] array1 = {1, 2, 2, 3, 3, 4, 4};
         System.out.println("missing in a sorted array  : " + onceInSortedArray(array1, 0, array1.length - 1));
 
         int[] array2 = {1, 2, 1, 1};
