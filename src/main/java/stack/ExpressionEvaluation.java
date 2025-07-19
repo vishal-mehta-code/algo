@@ -88,13 +88,11 @@ public class ExpressionEvaluation {
         Stack<Integer> stk = new Stack<>();
         String[] strArray = postFixExpression.split(" ");
         for (String str : strArray) {
-
             if (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
                 stk.push(evaluateOperand(str, stk.pop(), stk.pop()));
             } else {
                 stk.push(Integer.parseInt(str));
             }
-
         }
         System.out.println(stk.pop());
     }
