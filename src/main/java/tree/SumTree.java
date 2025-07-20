@@ -3,7 +3,7 @@ package tree;
 /**
  * Change the node value = sum of the left and right subtree. Another commonly
  * asked is change the node value = sum of the left and right subtree
- * considering only those values which are smaller then node value.
+ * considering only those values which are smaller than node value.
  */
 public class SumTree {
 
@@ -28,7 +28,7 @@ public class SumTree {
         node2.right.left = new Node(1);
         node2.right.right = new Node(30);
 
-        convertTosumTree(node1);
+        convertToSumTree(node1);
         TreeTraversals.inOrder(node1);
 
         // Convert to fully sum tree
@@ -45,7 +45,6 @@ public class SumTree {
      * node).
      */
     private static void convertToFullSumTree(Node node) {
-
         if ((node == null || (node.left == null && node.right == null)))
             return;
 
@@ -73,13 +72,13 @@ public class SumTree {
         }
     }
 
-    private static void convertTosumTree(Node node) {
+    private static void convertToSumTree(Node node) {
         if (node == null)
             return;
 
         node.data = calculateSum(node.left, node.data) + calculateSum(node.right, node.data);
-        convertTosumTree(node.left);
-        convertTosumTree(node.right);
+        convertToSumTree(node.left);
+        convertToSumTree(node.right);
     }
 
     private static int calculateSum(Node node, int data) {
