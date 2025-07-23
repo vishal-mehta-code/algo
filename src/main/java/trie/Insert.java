@@ -21,11 +21,11 @@ public class Insert {
 
     private static void insert(String str) {
         TrieNode currNode = rootNode;
-        char[] strarray = str.toCharArray();
-        for (int i = 0; i < strarray.length; i++) {
-            char current = strarray[i];
+        char[] strArray = str.toCharArray();
+        for (int i = 0; i < strArray.length; i++) {
+            char current = strArray[i];
 
-            if (currNode.children.size() == 0) {
+            if (currNode.children.isEmpty()) {
                 TrieNode t = new TrieNode(current);
                 currNode.children.add(t);
                 currNode = t;
@@ -45,10 +45,9 @@ public class Insert {
                 }
             }
 
-            if (i == strarray.length - 1) {
-                currNode.leaf = true;
+            if (i == strArray.length - 1) {
+                currNode.isWord = true;
             }
-
         }
     }
 }

@@ -13,9 +13,9 @@ public class Search {
     private static void searchKey(String str, TrieNode node) {
         boolean keyFound = false;
         TrieNode currNode = node;
-        char[] strarray = str.toCharArray();
-        for (int i = 0; i < strarray.length; i++) {
-            char current = strarray[i];
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char current = charArray[i];
 
             boolean found = false;
             for (TrieNode child : currNode.children) {
@@ -27,9 +27,10 @@ public class Search {
 
             if (!found) {
                 System.out.println("can not be found");
-                return;
-            } else if (found && i == str.length() - 1 && currNode.leaf) {
+                break;
+            } else if (currNode.isWord) {
                 keyFound = true;
+                break;
             }
         }
 

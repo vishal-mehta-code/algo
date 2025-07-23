@@ -6,7 +6,7 @@ import java.util.List;
 public class TrieNode {
     public char value;
     public List<TrieNode> children = new ArrayList<>();
-    public boolean leaf;
+    public boolean isWord;
 
     public TrieNode(char value) {
         super();
