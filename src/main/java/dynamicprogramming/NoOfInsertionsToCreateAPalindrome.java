@@ -3,25 +3,27 @@ package dp;
 public class NoOfInsertionsToCreateAPalindrome {
 
     public static void main(String[] args) {
-        System.out.println("no of insertions to create a palindrome : "
-                + noOfInsertionsToCreateAPalindrome("aaacbcaa".toCharArray()));
+       String s = "aaacbcaa";
+       String r = new StringBuilder(s).reverse().toString();
+       int n = lcs(s, r, s.length());
+       System.out.println(s.length() - n);
     }
 
-    private static int noOfInsertionsToCreateAPalindrome(char[] str) {
-        int n = str.length;
-        int[][] p = new int[n][n];
+    private static int lcs(String s, String r, int n) {
+        int[][] lcs = new int[n+1][n+1];
 
-        for (int gap = 1; gap < n; gap++) {
-            for (int l = 0; l < n - gap; l++) {
-                int h = l + gap;
-
-                if (str[l] == str[h]) {
-                    p[l][h] = p[l + 1][h - 1];
+        for (int i = 0; i <= n; i++){
+            for (int j = 0; j <= n; j++) {
+                if (i == 0 || j == 0) {
+                    lcs[i][j] = 0;
+                } else if (s.charAt(i-1) == r.charAt(j-1)) {
+                    lcs[i][j] = lcs[i-1][j-1] + 1;
                 } else {
-                    p[l][h] = Math.min(p[l + 1][h], p[l][h - 1]) + 1;
+                    lcs[i][j] = Math.max(lcs[i-1][j], lcs[i][j-1]);
                 }
             }
         }
-        return p[0][n - 1];
+
+        return lcs[n][n];
     }
 }
