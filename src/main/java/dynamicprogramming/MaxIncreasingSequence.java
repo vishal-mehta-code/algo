@@ -28,7 +28,7 @@ public class MaxIncreasingSequence {
             }
         }
 
-        System.out.println("length of max icreasing sequence is : " + max);
+        System.out.println("length of max increasing sequence is : " + max);
 
     }
 }
