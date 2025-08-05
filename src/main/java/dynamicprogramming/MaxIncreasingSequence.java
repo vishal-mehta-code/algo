@@ -18,7 +18,7 @@ public class MaxIncreasingSequence {
         }
 
         for (int i = 0; i < length - 1; i++) {
-            for (int j = i; j < length; j++) {
+            for (int j = i + 1; j < length; j++) {
                 if (array[j] > array[i] && lsi[j] < lsi[i] + 1) {
                     lsi[j] = lsi[i] + 1;
                 }
