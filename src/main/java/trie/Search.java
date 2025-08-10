@@ -3,37 +3,40 @@ package trie;
 public class Search {
 
     public static void main(String[] args) {
-        String[] strs = {"vishal", "vivek"};
+        String[] strs = {"vishal", "vivek", "hotdog"};
 
         TrieNode node = Insert.insert(strs);
 
-        searchKey("vivek", node);
+        boolean found = searchKey("vivek", node);
+        System.out.println(found);
+
+        boolean startsWith = startsWith("dog", node);
+        System.out.println(startsWith);
     }
 
-    private static void searchKey(String str, TrieNode node) {
-        boolean keyFound = false;
+    private static boolean searchKey(String str, TrieNode node) {
         TrieNode currNode = node;
-        char[] charArray = str.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-            char current = charArray[i];
 
-            boolean found = false;
-            for (TrieNode child : currNode.children) {
-                if (child.value == current) {
-                    found = true;
-                    currNode = child;
-                }
+        for (char curr : str.toCharArray()) {
+            if (currNode.children.get(curr) == null) {
+                return false;
             }
-
-            if (!found) {
-                System.out.println("can not be found");
-                break;
-            } else if (currNode.isWord) {
-                keyFound = true;
-                break;
-            }
+            currNode = currNode.children.get(curr);
         }
 
-        System.out.println("key found : " + keyFound);
+        return currNode.isWord;
+    }
+
+    private static boolean startsWith(String str, TrieNode node) {
+        TrieNode currNode = node;
+
+        for (char curr : str.toCharArray()) {
+            if (currNode.children.get(curr) == null) {
+                return false;
+            }
+            currNode = currNode.children.get(curr);
+        }
+
+        return true;
     }
 }

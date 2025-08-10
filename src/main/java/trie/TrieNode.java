@@ -1,19 +1,17 @@
 package trie;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrieNode {
     public char value;
-    public List<TrieNode> children = new ArrayList<>();
+    public Map<Character, TrieNode> children = new HashMap<>();
     public boolean isWord;
 
     public TrieNode(char value) {
-        super();
         this.value = value;
     }
 
     public TrieNode() {
-        super();
     }
 }

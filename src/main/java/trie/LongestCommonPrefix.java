@@ -16,7 +16,7 @@ public class LongestCommonPrefix {
 
         while (currNode.children.size() == 1) {
             max++;
-            currNode = currNode.children.get(0);
+            currNode = currNode.children.entrySet().iterator().next().getValue();
         }
 
         System.out.println("max common prefix is : " + max);
