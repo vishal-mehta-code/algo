@@ -4,7 +4,7 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] nums = {1, 3};
         int target = 5;
-        int index = binSearch(nums, target);
+        int index = binSearch(nums, 1);
         System.out.println("index : " + index);
     }
 
@@ -12,7 +12,7 @@ public class BinarySearch {
         int l = 0;
         int r = nums.length - 1;
 
-        while (l < r) {
+        while (l <= r) {
             int m = (l + r) / 2;
             if (nums[m] == target) {
                 return m;
