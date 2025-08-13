@@ -3,8 +3,8 @@ package searching;
 public class SearchInRotatedArrays {
 
     public static void main(String[] args) {
-        int[] nums = {5, 6, 7, 8, 9, 1, 2};
-        System.out.println("index is : " + search(nums, 9));
+        int[] nums = {5, 6, 7, 8, 0, 1, 2};
+        System.out.println("index is : " + search(nums, 8));
         System.out.println("max is : " + findMax(nums));
         System.out.println("min is : " + findMin(nums));
     }
@@ -36,31 +36,49 @@ public class SearchInRotatedArrays {
     }
 
     private static int findMin(int[] nums) {
-        return -1;
+        int l = 0;
+        int r = nums.length - 1;
+        int result = nums[0];
+
+        while (l <= r) {
+            if (nums[l] < nums[r]) {
+                return nums[l];
+            }
+
+            int m = (l + r) / 2;
+            result = Math.min(result, nums[m]);
+
+            if (nums[l] < nums[m]) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+
+        return result;
     }
 
     private static int findMax(int[] nums) {
         int l = 0;
         int r = nums.length - 1;
+        int result = nums[r];
 
-        while (l < r) {
-            int m = (l + r) / 2;
-
-            if (m == 0) {
-                if (nums[m] <= nums[m + 1]) {
-                    return m + 1;
-                }
+        while (l <= r) {
+            if (nums[l] < nums[r]) {
+                return nums[r];
             }
-            else if (nums[m - 1] <= nums[m] && nums[m] >= nums[m + 1]) {
-                return m;
-            } else if (nums[m - 1] <= nums[m]) {
-                l = m + 1;
-            } else if (nums[m - 1] >= nums[m]) {
-                r = m - 1;
+
+            int m = (l + r) / 2;
+            result = Math.max(result, nums[m]);
+
+            if (nums[l] < nums[m]) {
+                l = m;
+            } else {
+                r = m-1;
             }
         }
 
-        return -1;
+        return result;
     }
 
 }
