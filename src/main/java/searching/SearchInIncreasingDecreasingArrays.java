@@ -2,72 +2,81 @@ package searching;
 
 public class SearchInIncreasingDecreasingArrays {
 
-    // Increasing and decreasing
-    private static int[] array1 = {10, 9, 7, 6};
-
-    // decreasing and then increasing
-    private static int[] array2 = {10, 9, 8};
-
-    private static int length1 = array1.length;
-    private static int length2 = array2.length;
-
     public static void main(String[] args) {
+        int[] nums1 = {6, 4, 3, 1};
+        int[] nums2 = {10, 9, 8, 11, 12, 13};
 
-        System.out.println("pivot is : " + findPivotInIncreasingDecreasingArray(0, length1 - 1));
+        System.out.println("pivot in the increasing and decreasing array : " + findPivotInIncreasingDecreasingArray(nums1));
 
-        System.out.println("pivot is : " + findPivotInDecreasingIncreasingArray(0, length2 - 1));
+        System.out.println("pivot in the decreasing and increasing array : " + findPivotInDecreasingIncreasingArray(nums2));
     }
 
-    private static int findPivotInDecreasingIncreasingArray(int start, int end) {
+    private static int findPivotInDecreasingIncreasingArray(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (m == 0) {
+                if (nums[m + 1] < nums[m]) {
+                    return nums[m + 1];
+                } else {
+                    return nums[m];
+                }
+            }
+            if (m == nums.length - 1) {
+                if (nums[m - 1] < nums[m]) {
+                    return nums[m - 1];
+                } else {
+                    return nums[m];
+                }
+            }
 
-        if (start <= end) {
+            if (nums[m - 1] > nums[m] && nums[m] < nums[m + 1]) {
+                return nums[m];
+            } else if (nums[m - 1] > nums[m] && nums[m] > nums[m + 1]) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
 
-            if (start == end)
-                return array2[start];
-
-            int mid = start + (end - start) / 2;
-
-            if (array2[mid - 1] > array2[mid] && array2[mid + 1] > array2[mid])
-                return array2[mid];
-
-            if (array2[mid - 1] > array2[mid] && array2[mid + 1] < array2[mid])
-                return findPivotInDecreasingIncreasingArray(mid + 1, end);
-
-            if (array2[mid - 1] < array2[mid] && array2[mid + 1] > array2[mid])
-                return findPivotInDecreasingIncreasingArray(start, mid - 1);
 
         }
-
         return -1;
-
     }
 
-    private static int findPivotInIncreasingDecreasingArray(int start, int end) {
+    private static int findPivotInIncreasingDecreasingArray(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
 
-        if (start <= end) {
+        while (l <= r) {
+            int m = (l + r) / 2;
 
-            if (start == end)
-                return array1[start];
+            if (m == 0) {
+                if (nums[m + 1] > nums[m]) {
+                    return nums[m + 1];
+                } else {
+                    return nums[m];
+                }
 
-            if (start + 1 == end && array1[start] < array1[end])
-                return array1[end];
+            } else if (m == nums.length - 1) {
+                if (nums[m - 1] > nums[m]) {
+                    return nums[m - 1];
+                } else {
+                    return nums[m];
+                }
+            }
 
-            if (start + 1 == end && array1[start] > array1[end])
-                return array1[start];
-
-            int mid = start + (end - start) / 2;
-
-            if (array1[mid - 1] < array1[mid] && array1[mid + 1] < array1[mid])
-                return array1[mid];
-            if (array1[mid - 1] < array1[mid] && array1[mid + 1] > array1[mid])
-                return findPivotInIncreasingDecreasingArray(mid + 1, end);
-            if (array1[mid - 1] > array1[mid] && array1[mid + 1] < array1[mid])
-                return findPivotInIncreasingDecreasingArray(start, mid - 1);
-
+            if (nums[m - 1] < nums[m] && nums[m] > nums[m + 1]) {
+                return nums[m];
+            } else if (nums[m - 1] < nums[m] && nums[m] < nums[m + 1]) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
         }
 
-        return -1;
 
+        return -1;
     }
 
 }
